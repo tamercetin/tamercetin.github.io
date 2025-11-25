@@ -16,6 +16,7 @@
       background: #f5f5f5;
       text-align: center;
       padding: 50px 20px;
+      position: relative;
     }
     header img {
       width: 150px;
@@ -67,6 +68,20 @@
     .social-links a:hover {
       text-decoration: underline;
     }
+    /* styles for header social icons */
+    .header-social {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+    }
+    .header-social a {
+      margin-left: 10px;
+    }
+    .header-social img {
+      width: 24px;
+      height: 24px;
+      vertical-align: middle;
+    }
   </style>
 </head>
 <body>
@@ -74,6 +89,11 @@
     <img src="profile.jpg" alt="Tamer Cetin" />
     <h1>Tamer Cetin</h1>
     <p>Economics -- Causal Inference -- Machine Learning -- AI</p>
+    <div class="header-social">
+      <a href="https://github.com/tamercetin" target="_blank"><img src="github_icon.png" alt="GitHub" /></a>
+      <a href="https://www.linkedin.com/in/tamer-cetin-a230a338/" target="_blank"><img src="linkedin_icon.png" alt="LinkedIn" /></a>
+      <a href="https://scholar.google.com/citations?user=DHZPmFcAAAAJ&hl=en" target="_blank"><img src="scholar_icon.png" alt="Google Scholar" /></a>
+    </div>
     <nav>
       <a href="research.html">Research</a>
       <a href="teaching.html">Teaching</a>
@@ -93,11 +113,6 @@
   </section>
 
   <footer>
-    <div class="social-links">
-      <a href="https://github.com/tamercetin" target="_blank">GitHub</a>
-      <a href="https://www.linkedin.com/in/tamer-cetin" target="_blank">LinkedIn</a>
-      <a href="https://scholar.google.com/citations?user=DHZPmFcAAAAJ&hl=en" target="_blank">Google Scholar</a>
-    </div>
     <p>&copy; 2025 Tamer Cetin</p>
   </footer>
 </body>
