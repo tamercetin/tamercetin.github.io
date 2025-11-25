@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Introductory Applied Econometrics</title>
+  <style>
+    /* Basic styling to keep the look consistent with the main index page */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      color: #333;
+      line-height: 1.6;
+    }
+    header {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 36px;
+    }
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+    }
+    nav {
+      margin-top: 20px;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #0066cc;
+      font-weight: bold;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    section {
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    section h2 {
+      color: #0066cc;
+      margin-bottom: 15px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+    table th, table td {
+      border: 1px solid #ddd;
+      padding: 8px;
+      text-align: left;
+    }
+    table th {
+      background-color: #f9f9f9;
+    }
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 20px;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Introductory Applied Econometrics</h1>
+    <p>Course website for our introductory applied econometrics class.</p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="#syllabus">Syllabus</a>
+      <a href="#slides">Lecture Slides</a>
+    </nav>
+  </header>
+
+  <section id="overview">
+    <h2>Course Overview</h2>
+    <p>
+      This class develops the theory and practice of regression analysis for economic data, with an emphasis on
+      hands‑on applications in environmental, resource and international development economics.  You will learn how
+      to formulate hypotheses, design credible empirical strategies and interpret the results of econometric models.
+      After introducing simple and multiple regression, we delve into issues such as omitted variable bias,
+      heteroskedasticity, serial correlation and specification problems.  The course then extends these tools
+      to time‑series and panel data, qualitative response models, instrumental variables and causal designs
+      including difference‑in‑differences, synthetic controls and regression discontinuity.  In the final week
+      we explore how machine learning and artificial intelligence can be integrated into econometric frameworks.
+      Throughout the semester, examples are implemented in Python using real‑world datasets.
+    </p>
+  </section>
+
+  <section id="course-info">
+    <h2>Course Information</h2>
+    <p><strong>Instructor:</strong> Tamer Çetin — <a href="mailto:tamercetin@berkeley.edu">tamercetin@berkeley.edu</a></p>
+    <p><strong>Lecture:</strong> Monday, Wednesday & Friday 2:00–2:59&nbsp;pm, Genetics &amp; Plant Bio 100</p>
+    <p><strong>Office Hours:</strong> Fridays 3:00–5:00&nbsp;pm (Giannini 238)</p>
+    <p><strong>Course Site:</strong> Course materials, announcements and submissions will be hosted on bCourses.</p>
+    <h3>Teaching Team</h3>
+    <ul>
+      <li><strong>Liam Paul Frolund</strong> – <a href="mailto:lfrolund@berkeley.edu">lfrolund@berkeley.edu</a><br />
+        Discussion Sections: #101 (Wed 9:00–9:59 am, Dwinelle 242) and #102 (Wed 10:00–10:59 am, Wheeler 30); Office Hours: Thursdays 3:00–4:00 pm (Giannini 203)
+      </li>
+      <li><strong>Ei Thandar Myint</strong> – <a href="mailto:etmyint@berkeley.edu">etmyint@berkeley.edu</a><br />
+        Discussion Sections: #103 (Fri 9:00–9:59 am, Dwinelle 79) and #104 (Fri 10:00–10:59 am, Wheeler 224); Office Hours: Tuesdays 11:00 am–12:00 pm (Giannini 203)
+      </li>
+    </ul>
+  </section>
+
+  <section id="learning-goals">
+    <h2>Learning Goals</h2>
+    <p>By the end of the term you will be able to:</p>
+    <ul>
+      <li>Formulate empirically testable hypotheses and define credible identification strategies.</li>
+      <li>Implement and interpret OLS, IV, panel data, difference‑in‑differences and regression discontinuity estimators with robust inference.</li>
+      <li>Manage cross‑sectional, time‑series and panel datasets using reproducible Python workflows.</li>
+      <li>Conduct hypothesis tests and interpret both statistical significance and economic magnitude.</li>
+      <li>Apply foundational concepts for integrating machine learning/AI into econometric frameworks.</li>
+    </ul>
+  </section>
+
+  <section id="weekly-schedule">
+    <h2>Weekly Schedule</h2>
+    <p>The tentative schedule below lists topics and readings (Wooldridge chapter numbers in parentheses).  Dates and topics may adjust slightly as the semester progresses; any changes will be announced on bCourses.</p>
+    <table>
+      <tr>
+        <th>Week</th>
+        <th>Topic</th>
+        <th>Reading</th>
+      </tr>
+      <tr><td>1</td><td>Nature of Econometrics; Economic Data; Review of Probability/Statistics</td><td>Ch.&nbsp;1–2</td></tr>
+      <tr><td>2</td><td>Simple Regression Model; Omitted Variable Bias</td><td>Ch.&nbsp;2–3</td></tr>
+      <tr><td>3</td><td>Multiple Regression; Inference in Multiple Regression</td><td>Ch.&nbsp;4</td></tr>
+      <tr><td>4</td><td>Functional Form; Qualitative Information in Regression</td><td>Ch.&nbsp;6–7</td></tr>
+      <tr><td>5</td><td>Heteroskedasticity; Specification and Data Problems</td><td>Ch.&nbsp;8–9</td></tr>
+      <tr><td>6</td><td>Time Series Data; Serial Correlation</td><td>Ch.&nbsp;10–12 (selected)</td></tr>
+      <tr><td>7</td><td>Pooled Cross Sections; Panel Data; Midterm Exam</td><td>Ch.&nbsp;13</td></tr>
+      <tr><td>8</td><td>Fixed Effects and Random Effects Models</td><td>Ch.&nbsp;14</td></tr>
+      <tr><td>9</td><td>Endogeneity and IV Estimation</td><td>Ch.&nbsp;15</td></tr>
+      <tr><td>10</td><td>Simultaneous Equations Models</td><td>Ch.&nbsp;16</td></tr>
+      <tr><td>11</td><td>Limited Dependent Variable Models (Logit/Probit)</td><td>Ch.&nbsp;17</td></tr>
+      <tr><td>12</td><td>Advanced Panel Data Topics</td><td>Ch.&nbsp;14 (advanced)</td></tr>
+      <tr><td>13</td><td>Review & Special Topics in Causal Inference (DiD, RD)</td><td>Ch.&nbsp;13–15 (applications)</td></tr>
+      <tr><td>14</td><td>Introduction to ML/AI in Causal Inference</td><td>Provided notes/articles</td></tr>
+    </table>
+  </section>
+
+  <section id="assessment">
+    <h2>Assessment & Grading</h2>
+    <ul>
+      <li><strong>Problem Sets (5)</strong>: 35&nbsp;% of the grade. Short assignments practicing econometric methods and coding.</li>
+      <li><strong>Replication Mini‑Project</strong>: 15&nbsp;%. Replication of a classic IV paper (returns to education) using supplied data.</li>
+      <li><strong>Midterm Exam</strong>: 20&nbsp;%. In‑class exam (closed lecture notes; no AI tools) covering Weeks 1–6.</li>
+      <li><strong>Final Project</strong>: 30&nbsp;%. An original causal question answered using course methods; submitted with reproducible code.</li>
+    </ul>
+    <p><strong>Late Policy:</strong> assignments are penalized by 10 percentage points per 24 hours (maximum 72 hours). Conceptual discussion with classmates is encouraged, but all submitted work must be written and coded individually. AI tools may be used for brainstorming or scaffolding with explicit citation; students are responsible for correctness and originality.</p>
+  </section>
+
+  <section id="key-dates">
+    <h2>Key Dates (Fall 2025)</h2>
+    <ul>
+      <li><strong>Problem Set 1:</strong> released Sep 3 → due Sep 10</li>
+      <li><strong>Problem Set 2:</strong> released Sep 17 → due Sep 24</li>
+      <li><strong>Problem Set 3:</strong> released Oct 1 → due Oct 8</li>
+      <li><strong>Problem Set 4:</strong> released Oct 22 → due Oct 29</li>
+      <li><strong>Problem Set 5:</strong> released Nov 5 → due Nov 12</li>
+      <li><strong>Midterm Exam:</strong> Fri Oct 10 (Week 7)</li>
+      <li><strong>Replication Mini‑Project:</strong> assigned Sep 24 → due Oct 24</li>
+      <li><strong>Final Project:</strong> proposal due Oct 31; optional progress check Nov 14; final submission due Dec 5; presentations during RRR week (Dec 8–12)</li>
+    </ul>
+  </section>
+
+  <section id="resources">
+    <h2>Texts & Resources</h2>
+    <p><strong>Required Text:</strong> Jeffrey Wooldridge, <em>Introductory Econometrics: A Modern Approach</em>. Any edition from the 5th onward is acceptable, as the core content and end‑of‑chapter problems are similar. The slides summarise key ideas, but the textbook provides fuller explanations, derivations and practice exercises that are essential for mastering the material.</p>
+    <p><strong>Supplementary:</strong> Selected papers and handouts will be posted on bCourses.</p>
+    <p><strong>Software:</strong> We use Python 3 (via Anaconda) with packages such as numpy, pandas, statsmodels, linearmodels and matplotlib. Students should install Anaconda and ensure their environment is working prior to the first coding lab.</p>
+    <p><strong>Full Syllabus (PDF):</strong> <a href="https://drive.google.com/file/d/1ZLn6jcdbpnFAwrrxzG_HJaROTrdZPHDu/view?usp=sharing">syllabus_IAE_Fall25.pdf</a></p>
+  </section>
+
+  <section id="syllabus">
+    <h2>Syllabus</h2>
+    <p>
+      The course follows the textbook <em>Introductory Econometrics: A Modern Approach</em> (8th edition) by Jeffrey
+      Wooldridge. Each lecture roughly corresponds to a chapter of the book. A brief outline of topics is provided
+      below.
+    </p>
+    <ul>
+      <li><strong>Chapter 1:</strong> The Nature of Econometrics and Economic Data</li>
+      <li><strong>Chapter 2:</strong> The Simple Regression Model</li>
+      <li><strong>Chapter 3:</strong> Multiple Regression Analysis: Estimation</li>
+      <li><strong>Chapter 4:</strong> Multiple Regression Analysis: Inference</li>
+      <li><strong>Chapter 5:</strong> Multiple Regression Analysis: OLS Asymptotics</li>
+      <li><strong>Chapter 6:</strong> Multiple Regression: Further Issues</li>
+      <li><strong>Chapter 7:</strong> Multiple Regression Analysis with Qualitative Information (Dummy Variables)</li>
+      <li><strong>Chapter 8:</strong> Heteroskedasticity</li>
+      <li><strong>Chapter 9:</strong> More on Specification and Data Issues</li>
+      <li><strong>Chapter 10:</strong> Basic Regression Analysis with Time Series Data</li>
+      <li><strong>Chapter 11:</strong> Further Issues in Using OLS with Time Series Data</li>
+      <li><strong>Chapter 12:</strong> Serial Correlation and Heteroskedasticity in Time Series Regressions</li>
+      <li><strong>Chapter 13:</strong> Pooling Cross Sections Across Time: Simple Panel Data Methods</li>
+      <li><strong>Chapter 14:</strong> Advanced Panel Data Methods</li>
+      <li><strong>Chapter 15:</strong> Instrumental Variables Estimation and Two‑Stage Least Squares</li>
+      <li><strong>Chapter 16:</strong> Simultaneous Equations Models</li>
+      <li><strong>Chapter 17:</strong> Limited Dependent Variable Models and Sample Selection Corrections</li>
+      <li><strong>Chapter 18:</strong> Advanced Time Series Topics</li>
+      <li><strong>Chapter 19:</strong> Carrying Out an Empirical Project</li>
+      <li><strong>Chapter 20:</strong> The Nature and Scope of Econometrics (capstone and review)</li>
+    </ul>
+  </section>
+
+  <section id="slides">
+    <h2>Lecture Slides</h2>
+    <p>
+      Below is a list of lecture slides for each chapter.  
+      The files are provided in PowerPoint format (.pptx) for download.  
+      Some browsers will prompt you to save the file; others may open them directly if you have the appropriate
+      viewer installed.
+    </p>
+    <table>
+      <tr>
+        <th>Lecture</th>
+        <th>Topic</th>
+        <th>Slides</th>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>The Nature of Econometrics and Economic Data</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH01 (1).pptx">CH 1 slides</a></td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>The Simple Regression Model</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH02.pptx">CH 2 slides</a></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Multiple Regression Analysis: Estimation</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH03.pptx">CH 3 slides</a></td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Multiple Regression Analysis: Inference</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH04 (1).pptx">CH 4 slides</a></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Multiple Regression Analysis: OLS Asymptotics</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH05.pptx">CH 5 slides</a></td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Multiple Regression: Further Issues</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH06.pptx">CH 6 slides</a></td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Multiple Regression Analysis with Qualitative Information</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH07.pptx">CH 7 slides</a></td>
+      </tr>
+      <tr>
+        <td>8</td>
+        <td>Heteroskedasticity</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH08.pptx">CH 8 slides</a></td>
+      </tr>
+      <tr>
+        <td>9</td>
+        <td>More on Specification and Data Issues</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH09.pptx">CH 9 slides</a></td>
+      </tr>
+      <tr>
+        <td>10</td>
+        <td>Basic Regression Analysis with Time Series Data</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH10.pptx">CH 10 slides</a></td>
+      </tr>
+      <tr>
+        <td>11</td>
+        <td>Further Issues in Using OLS with Time Series Data</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH11.pptx">CH 11 slides</a></td>
+      </tr>
+      <tr>
+        <td>12</td>
+        <td>Serial Correlation and Heteroskedasticity in Time Series Regressions</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH12.pptx">CH 12 slides</a></td>
+      </tr>
+      <tr>
+        <td>13</td>
+        <td>Pooling Cross Sections Across Time: Simple Panel Data Methods</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH13.pptx">CH 13 slides</a></td>
+      </tr>
+      <tr>
+        <td>14</td>
+        <td>Advanced Panel Data Methods</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH14.pptx">CH 14 slides</a></td>
+      </tr>
+      <tr>
+        <td>15</td>
+        <td>Instrumental Variables Estimation and Two‑Stage Least Squares</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH15.pptx">CH 15 slides</a></td>
+      </tr>
+      <tr>
+        <td>16</td>
+        <td>Simultaneous Equations Models</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH16.pptx">CH 16 slides</a></td>
+      </tr>
+      <tr>
+        <td>17</td>
+        <td>Limited Dependent Variable Models and Sample Selection</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH17.pptx">CH 17 slides</a></td>
+      </tr>
+      <tr>
+        <td>18</td>
+        <td>Advanced Time Series Topics</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH18_.pptx">CH 18 slides</a></td>
+      </tr>
+      <tr>
+        <td>19</td>
+        <td>Carrying Out an Empirical Project</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH19.pptx">CH 19 slides</a></td>
+      </tr>
+      <tr>
+        <td>20</td>
+        <td>Course Review &amp; Recap</td>
+        <td><a href="slides/Wooldridge_Introductory Econometrics A Modern Approach 8e_PPT_CH20.pptx">CH 20 slides</a></td>
+      </tr>
+    </table>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 Tamer Cetin. All rights reserved.</p>
+  </footer>
+</body>
+</html>
