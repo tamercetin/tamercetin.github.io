@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PostAxiom | Forecasting, Causal Inference, and Decision Intelligence</title>
+  <meta name="description" content="PostAxiom is building a research-driven enterprise platform for forecasting, causal inference, and decision intelligence under real-world instability." />
+  <style>
+    :root {
+      --bg: #071018;
+      --bg-2: #0c1626;
+      --panel: rgba(255,255,255,0.06);
+      --panel-2: rgba(255,255,255,0.04);
+      --line: rgba(255,255,255,0.10);
+      --text: #ecf1ff;
+      --muted: #b7c3df;
+      --blue: #7da7ff;
+      --teal: #71e0c6;
+      --gold: #e9d48c;
+      --max: 1180px;
+      --shadow: 0 18px 45px rgba(0,0,0,0.22);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      color: var(--text);
+      background:
+        radial-gradient(circle at 15% 0%, rgba(125,167,255,0.18), transparent 24%),
+        radial-gradient(circle at 85% 8%, rgba(113,224,198,0.14), transparent 22%),
+        linear-gradient(180deg, #071018 0%, #0a1320 44%, #0d1728 100%);
+      line-height: 1.62;
+    }
+
+    a { color: inherit; }
+    img { max-width: 100%; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: rgba(7, 16, 24, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      backdrop-filter: blur(12px);
+    }
+
+    .topbar {
+      min-height: 74px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      font-size: 1.05rem;
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(125,167,255,0.26), rgba(113,224,198,0.18));
+      border: 1px solid rgba(255,255,255,0.14);
+      color: var(--teal);
+      font-size: 0.92rem;
+      box-shadow: var(--shadow);
+    }
+
+    .brand span.accent { color: var(--teal); }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    nav a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.96rem;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .hero {
+      padding: 84px 0 54px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(125,167,255,0.26);
+      color: var(--teal);
+      border-radius: 999px;
+      font-size: 0.88rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 6vw, 5.3rem);
+      line-height: 1.02;
+      letter-spacing: -0.04em;
+      max-width: 980px;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 820px;
+      font-size: 1.14rem;
+      margin-top: 24px;
+    }
+
+    .hero-grid {
+      margin-top: 38px;
+      display: grid;
+      grid-template-columns: 1.18fr 0.82fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .panel, .card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .panel { padding: 28px; }
+    .card { padding: 22px; }
+
+    .button-row {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 14px;
+      text-decoration: none;
+      font-weight: 650;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      color: #071018;
+      background: linear-gradient(135deg, var(--teal), #92f0da);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.03);
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .mini-title {
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .system-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .system {
+      border-radius: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 18px;
+    }
+
+    .system h3 {
+      margin: 0 0 8px;
+      font-size: 1.02rem;
+    }
+
+    .system p,
+    .card p,
+    .card li,
+    .panel p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.97rem;
+    }
+
+    .sample {
+      display: grid;
+      gap: 14px;
+    }
+
+    .sample-box {
+      border-radius: 18px;
+      padding: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .sample-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: 0.98rem;
+    }
+
+    section.section {
+      padding: 26px 0 12px;
+    }
+
+    .section-head {
+      margin-bottom: 24px;
+    }
+
+    .section-head h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.75rem, 4vw, 2.7rem);
+      letter-spacing: -0.03em;
+    }
+
+    .section-head p {
+      color: var(--muted);
+      margin: 0;
+      max-width: 820px;
+      font-size: 1.04rem;
+    }
+
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; }
+
+    ul.clean {
+      padding-left: 18px;
+      margin: 12px 0 0;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 16px;
+    }
+
+    .chip {
+      padding: 9px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.09);
+      color: var(--text);
+      font-size: 0.92rem;
+    }
+
+    .roadmap {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+
+    .road-step {
+      position: relative;
+      padding-top: 10px;
+    }
+
+    .road-step::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 64px;
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--blue), var(--teal));
+    }
+
+    .quote-band {
+      margin-top: 22px;
+      padding: 24px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, rgba(125,167,255,0.12), rgba(113,224,198,0.08));
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .quote-band strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 1.04rem;
+    }
+
+    footer {
+      padding: 42px 0 64px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-top: 14px;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .grid-3,
+      .grid-4,
+      .roadmap,
+      .system-grid {
+        grid-template-columns: 1fr;
+      }
+
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap topbar">
+      <a class="brand" href="#top">
+        <span class="brand-mark">P∴</span>
+        <span>Post<span class="accent">Axiom</span></span>
+      </a>
+      <nav>
+        <a href="#why">Why</a>
+        <a href="#platform">Platform</a>
+        <a href="#science">Science</a>
+        <a href="#research">Research</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">A research-driven platform for the post-dashboard, post-correlation era</div>
+        <h1>Beyond static models. Beyond black-box prediction. Beyond yesterday’s assumptions.</h1>
+        <p class="hero-sub">
+          PostAxiom is a new enterprise intelligence platform for forecasting, causal inference, and decision support.
+          We are building systems that work under structural instability, high-dimensional observational data,
+          regime shifts, and policy-sensitive business decisions.
+        </p>
+
+        <div class="button-row">
+          <a class="btn btn-primary" href="mailto:tamercetin@berkeley.edu?subject=PostAxiom%20Pilot%20Inquiry">Request a pilot</a>
+          <a class="btn btn-secondary" href="#science">Explore the science stack</a>
+        </div>
+
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="mini-title">What “post-axiom” means</div>
+            <p>
+              The old enterprise stack assumes stable regimes, simple correlations, and reusable formulas for every decision.
+              PostAxiom starts where those assumptions break. We treat forecasting, causal inference, and policy simulation as one connected problem.
+            </p>
+
+            <div class="system-grid">
+              <div class="system">
+                <h3>Post-forecast-only</h3>
+                <p>Not just point estimates. Probabilistic forecasts, scenario-conditioned forecasts, and decision-value forecasts.</p>
+              </div>
+              <div class="system">
+                <h3>Post-correlation</h3>
+                <p>Not just prediction. Experimental and observational causal estimation for pricing, policy, and operational decisions.</p>
+              </div>
+              <div class="system">
+                <h3>Post-static-regime</h3>
+                <p>Not just one stable world. Break-aware models, linked-series systems, and adaptive learning under structural change.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel sample">
+            <div>
+              <div class="mini-title">Illustrative output</div>
+              <p>A decision memo generated from a pricing and demand scenario for a large multi-series business.</p>
+            </div>
+            <div class="sample-box">
+              <strong>Forecast layer</strong>
+              Segment-level demand softened after a regime shift; post-break models now dominate the historical benchmark.
+            </div>
+            <div class="sample-box">
+              <strong>Causal layer</strong>
+              Elasticity estimates from observational data indicate room for a controlled price increase with uncertainty still inside decision tolerance.
+            </div>
+            <div class="sample-box">
+              <strong>Decision layer</strong>
+              Increase price by 2–3% in monitored units, preserve holdouts, and update the policy weekly as new evidence arrives.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>A different category</h2>
+          <p>
+            Most tools do one of three things: they forecast, they dashboard, or they automate. PostAxiom is being designed to do something harder:
+            estimate what is likely to happen, estimate what would happen if you act, and turn that into a usable decision workflow.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>For unstable environments</h3>
+            <p>Business systems shift. Demand regimes break. Policy effects drift. We build around that reality instead of pretending it away.</p>
+          </div>
+          <div class="card">
+            <h3>For high-stakes enterprise choices</h3>
+            <p>Pricing, promotions, budget allocation, supply decisions, growth experiments, and operational policy are the first target domains.</p>
+          </div>
+          <div class="card">
+            <h3>For research-grade trust</h3>
+            <p>Our ambition is not another generic agent. It is a scientific decision layer grounded in econometrics, machine learning, and causal inference.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="platform" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>The platform stack</h2>
+          <p>
+            PostAxiom is being developed as a modular system with three connected engines: forecasting, causality, and decisions.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Forecast Engine</h3>
+            <ul class="clean">
+              <li>Many-series and hierarchical forecasting</li>
+              <li>Global machine learning models for large business datasets</li>
+              <li>Break-aware and regime-aware model selection</li>
+              <li>Probabilistic intervals and scenario-conditioned forecasts</li>
+              <li>Linked-series systems for demand, price, supply, and revenue</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Causal Engine</h3>
+            <ul class="clean">
+              <li>Experimental analysis for A/B, geo, and operational tests</li>
+              <li>Observational causal methods for messy enterprise data</li>
+              <li>DML and orthogonal-score workflows</li>
+              <li>Pricing, promotion, and policy-effect estimation</li>
+              <li>Counterfactual simulation under uncertainty</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Decision Engine</h3>
+            <ul class="clean">
+              <li>Scenario generation and recommendation memos</li>
+              <li>Action logs and approval workflows</li>
+              <li>Executive summaries grounded in model evidence</li>
+              <li>Monitoring, alerts, and policy updates</li>
+              <li>Human-in-the-loop decision intelligence</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="science" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Scientific core</h2>
+          <p>
+            The product is meant to look simple on the surface, but the scientific engine behind it is intentionally deep.
+            We want cutting-edge methods where they matter, without turning the platform into a method zoo.
+          </p>
+        </div>
+
+        <div class="grid-4">
+          <div class="card">
+            <h3>Modern forecasting</h3>
+            <p>State space models, dynamic regression, hierarchical systems, global ML forecasting, nowcasting, and calibrated interval prediction.</p>
+          </div>
+          <div class="card">
+            <h3>Structural instability</h3>
+            <p>Structural break diagnostics, change-point logic, break-aware retraining, and regime-sensitive selection when business dynamics shift.</p>
+          </div>
+          <div class="card">
+            <h3>Linked economic systems</h3>
+            <p>Cointegration-aware and system-level modeling for variables that move together over time instead of being forecast in isolation.</p>
+          </div>
+          <div class="card">
+            <h3>Causal rigor</h3>
+            <p>DML, doubly robust methods, DiD, event studies, synthetic controls, instrumental variables, and experimental analysis where feasible.</p>
+          </div>
+        </div>
+
+        <div class="chips">
+          <span class="chip">DML</span>
+          <span class="chip">Orthogonal Scores</span>
+          <span class="chip">Cross-Fitting</span>
+          <span class="chip">DiD</span>
+          <span class="chip">Synthetic Control</span>
+          <span class="chip">IV</span>
+          <span class="chip">Causal Forests</span>
+          <span class="chip">Probabilistic Forecasting</span>
+          <span class="chip">Cointegration</span>
+          <span class="chip">Structural Breaks</span>
+          <span class="chip">Conformal Calibration</span>
+          <span class="chip">Scenario Simulation</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Research DNA</h2>
+          <p>
+            PostAxiom is envisioned as a research-native company. The long-run moat is not a prettier interface; it is an intellectual architecture that combines
+            econometrics, machine learning, and enterprise decision systems.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Identification-aware learning</h3>
+            <p>Selection and tuning should not quietly destroy inferential validity. We care about how adaptive pipelines affect credible causal learning.</p>
+          </div>
+          <div class="card">
+            <h3>Leakage-free inference</h3>
+            <p>Cross-fitting, nested model selection, and disciplined data splitting are central when modern ML meets policy-relevant estimation.</p>
+          </div>
+          <div class="card">
+            <h3>Forecasting under instability</h3>
+            <p>Our platform direction assumes structural shifts, time-varying relationships, and linked systems rather than a single permanent data-generating regime.</p>
+          </div>
+        </div>
+
+        <div class="quote-band">
+          <strong>Founder research agenda</strong>
+          The platform direction is aligned with work on double machine learning, observational causal inference, identification-aware model selection,
+          robust inference under weak identification, hierarchical causal models, and decision support under nonstationary environments.
+        </div>
+      </div>
+    </section>
+
+    <section id="roadmap" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Development path</h2>
+          <p>
+            The company should begin with a narrow commercial wedge, prove decision value, and then expand toward a broader decision intelligence layer.
+          </p>
+        </div>
+
+        <div class="roadmap">
+          <div class="card road-step">
+            <h3>Phase 1 — Forecast + Pricing Intelligence</h3>
+            <p>Launch with demand, revenue, pricing, and promotion use cases for large multi-series businesses in the U.S. market.</p>
+          </div>
+          <div class="card road-step">
+            <h3>Phase 2 — Policy Lab</h3>
+            <p>Add richer observational causal workflows, controlled experiment analysis, and executive scenario planning for finance and growth teams.</p>
+          </div>
+          <div class="card road-step">
+            <h3>Phase 3 — Decision Layer</h3>
+            <p>Move toward monitored recommendation systems, action logs, adaptive retraining, and human-governed autonomous analytics.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Early build stage</h2>
+          <p>
+            This page is a first branded draft for the venture. It is suitable for early conversations with design partners, pilot customers, collaborators, and investors.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <h3>Design partners</h3>
+            <p>Teams working on pricing, demand planning, growth measurement, or FP&amp;A are the strongest early fit.</p>
+          </div>
+          <div class="card">
+            <h3>Research collaboration</h3>
+            <p>The long-run ambition is to turn frontier econometric and ML ideas into usable enterprise systems, not just white papers.</p>
+          </div>
+          <div class="card">
+            <h3>Contact</h3>
+            <p>
+              <a href="mailto:tamercetin@berkeley.edu?subject=PostAxiom%20Inquiry">tamercetin@berkeley.edu</a><br />
+              GitHub: <a href="https://github.com/tamercetin" target="_blank" rel="noreferrer">tamercetin</a>
+            </p>
+          </div>
+        </div>
+
+        <p class="note">
+          Working-brand note: this page is currently hosted as a preview inside the existing GitHub Pages site. The final domain can be pointed later once naming and registrar decisions are finalized.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <div>PostAxiom — forecasting, causal inference, and decision intelligence for the post-axiom era.</div>
+      <div class="note">Preview path: <strong>/postaxiom/</strong> on the existing GitHub Pages site.</div>
+    </div>
+  </footer>
+</body>
+</html>
