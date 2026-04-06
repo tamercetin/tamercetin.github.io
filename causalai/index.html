@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CausalAI | Forecasting, Prediction, and Causal Decision Intelligence</title>
+  <meta name="description" content="CausalAI helps enterprises forecast better, estimate policy impact, and make decisions under real-world instability." />
+  <style>
+    :root {
+      --bg: #0b1020;
+      --bg-soft: #121933;
+      --card: rgba(255,255,255,0.06);
+      --line: rgba(255,255,255,0.12);
+      --text: #edf2ff;
+      --muted: #b6c2e0;
+      --accent: #7aa2ff;
+      --accent-2: #79e2c0;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(122,162,255,0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(121,226,192,0.14), transparent 24%),
+        linear-gradient(180deg, #0a1020 0%, #0f1630 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(10, 16, 32, 0.72);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 72px;
+      gap: 24px;
+    }
+
+    .brand {
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: 0.02em;
+    }
+
+    .brand span { color: var(--accent-2); }
+
+    nav a {
+      text-decoration: none;
+      color: var(--muted);
+      margin-left: 20px;
+      font-size: 0.96rem;
+    }
+
+    nav a:hover { color: var(--text); }
+
+    .hero {
+      padding: 84px 0 56px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid rgba(122,162,255,0.28);
+      border-radius: 999px;
+      color: var(--accent-2);
+      background: rgba(255,255,255,0.04);
+      font-size: 0.88rem;
+      letter-spacing: 0.01em;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(2.3rem, 5vw, 4.6rem);
+      line-height: 1.05;
+      max-width: 900px;
+      letter-spacing: -0.03em;
+    }
+
+    .hero p {
+      max-width: 760px;
+      font-size: 1.12rem;
+      color: var(--muted);
+      margin: 22px 0 0;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 0 20px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), #5e85f0);
+      color: #07101f;
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      margin-top: 44px;
+      align-items: stretch;
+    }
+
+    .panel,
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+    }
+
+    .panel {
+      padding: 26px;
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .metric {
+      padding: 18px;
+      border-radius: 16px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .metric strong {
+      display: block;
+      font-size: 1rem;
+      margin-bottom: 6px;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .decision-card {
+      padding: 24px;
+    }
+
+    .decision-card h3,
+    .section h2,
+    .panel h3 {
+      margin-top: 0;
+      letter-spacing: -0.02em;
+    }
+
+    .mini-label {
+      color: var(--accent-2);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.78rem;
+      margin-bottom: 10px;
+    }
+
+    .decision-box {
+      border: 1px solid rgba(121,226,192,0.22);
+      background: rgba(121,226,192,0.06);
+      border-radius: 16px;
+      padding: 16px;
+      margin: 16px 0;
+    }
+
+    .decision-box strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--accent-2);
+    }
+
+    .section {
+      padding: 30px 0 10px;
+    }
+
+    .section h2 {
+      font-size: clamp(1.75rem, 3vw, 2.4rem);
+      margin-bottom: 10px;
+    }
+
+    .section p.lead {
+      color: var(--muted);
+      max-width: 780px;
+      margin-top: 0;
+      margin-bottom: 24px;
+      font-size: 1.06rem;
+    }
+
+    .grid-3,
+    .grid-4 {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+
+    .card {
+      padding: 22px;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.08rem;
+    }
+
+    .card p,
+    .card li {
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+
+    ul.clean {
+      padding-left: 18px;
+      margin: 12px 0 0;
+    }
+
+    .band {
+      margin: 24px 0 6px;
+      padding: 22px;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      background: linear-gradient(135deg, rgba(122,162,255,0.10), rgba(121,226,192,0.08));
+    }
+
+    .footer {
+      padding: 40px 0 64px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer a {
+      color: var(--text);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(255,255,255,0.16);
+    }
+
+    .small-note {
+      color: var(--muted);
+      font-size: 0.88rem;
+      margin-top: 14px;
+    }
+
+    @media (max-width: 960px) {
+      .hero-grid,
+      .grid-3,
+      .grid-4 {
+        grid-template-columns: 1fr;
+      }
+
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap nav">
+      <div class="brand">Causal<span>AI</span></div>
+      <nav>
+        <a href="#product">Product</a>
+        <a href="#why-us">Why Us</a>
+        <a href="#use-cases">Use Cases</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="wrap">
+        <div class="eyebrow">Draft launch page • hosted on GitHub Pages</div>
+        <h1>Forecast better. Decide with causality.</h1>
+        <p>
+          CausalAI is building an enterprise platform for forecasting, prediction, and causal decision intelligence.
+          We help teams move beyond static dashboards and point estimates toward scenario-aware forecasts,
+          policy-effect estimation, and decision support under real-world instability.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:tamercetin@berkeley.edu?subject=CausalAI%20Pilot%20Inquiry">Request a pilot</a>
+          <a class="btn btn-secondary" href="#product">See the platform</a>
+        </div>
+
+        <div class="hero-grid">
+          <div class="panel">
+            <div class="mini-label">Platform pillars</div>
+            <h3>Three systems, one decision layer</h3>
+            <div class="metric-grid">
+              <div class="metric">
+                <strong>Forecast Engine</strong>
+                <span>Probabilistic forecasting, break-aware modeling, linked-series intelligence, and large-scale multi-series ML.</span>
+              </div>
+              <div class="metric">
+                <strong>Causal Engine</strong>
+                <span>Experimental and observational impact analysis, DML, elasticity estimation, and policy-effect measurement.</span>
+              </div>
+              <div class="metric">
+                <strong>Decision Copilot</strong>
+                <span>Scenario simulation, executive memos, alerts, and recommendation workflows grounded in uncertainty.</span>
+              </div>
+              <div class="metric">
+                <strong>Enterprise Ready</strong>
+                <span>Designed for high-volume, high-frequency, and cross-functional business data in unstable environments.</span>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel decision-card">
+            <div class="mini-label">Illustrative output</div>
+            <h3>What a decision memo looks like</h3>
+            <p class="small-note">Example: pricing and demand scenario for a large multi-series business.</p>
+            <div class="decision-box">
+              <strong>Recommended action</strong>
+              Increase price by 3% in Segment A while holding Segment B constant; expected revenue impact remains positive under the current demand regime.
+            </div>
+            <p><strong>Forecast view:</strong> Demand softening is concentrated after a structural break in Q4, so post-break models dominate the pre-break baseline.</p>
+            <p><strong>Causal view:</strong> Observational elasticity estimates suggest a moderate response, with uncertainty bands narrow enough for a controlled rollout.</p>
+            <p><strong>Operational view:</strong> Launch as a monitored pilot, compare against holdout units, and update the policy recommendation weekly.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="product" class="section">
+      <div class="wrap">
+        <h2>What the platform does</h2>
+        <p class="lead">
+          Most enterprise tools either predict or report. We are building a platform that combines advanced forecasting,
+          modern machine learning, and causal inference so teams can ask not only what is likely to happen, but what will happen if they act.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Forecasting for unstable business environments</h3>
+            <ul class="clean">
+              <li>Many-series and hierarchical forecasting</li>
+              <li>Probabilistic intervals and scenario-conditioned forecasts</li>
+              <li>Structural-break and regime-shift awareness</li>
+              <li>Linked-series modeling for price, demand, supply, and revenue systems</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Prediction systems built for large data</h3>
+            <ul class="clean">
+              <li>Machine learning for large-scale business data</li>
+              <li>Cross-series feature learning and exogenous driver integration</li>
+              <li>Champion-challenger evaluation and rolling backtests</li>
+              <li>Reliable model switching when business dynamics change</li>
+            </ul>
+          </div>
+          <div class="card">
+            <h3>Causal inference for decision support</h3>
+            <ul class="clean">
+              <li>A/B test and geo-test analysis</li>
+              <li>Difference-in-differences and event studies</li>
+              <li>Doubly robust and double machine learning workflows</li>
+              <li>Pricing, promotion, and policy-effect estimation from observational data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="why-us" class="section">
+      <div class="wrap">
+        <h2>Why this is different</h2>
+        <p class="lead">
+          The current market is crowded with forecasting tools, dashboards, and generic agents. The missing layer is a system that can handle structural instability,
+          exploit modern ML at scale, and still produce business decisions with causal discipline and usable uncertainty.
+        </p>
+        <div class="grid-4">
+          <div class="card">
+            <h3>Break-aware by design</h3>
+            <p>Business time series are not stable forever. We explicitly detect and adapt to regime changes instead of assuming yesterday's structure still holds.</p>
+          </div>
+          <div class="card">
+            <h3>Forecasts with decision value</h3>
+            <p>Point forecasts alone are not enough. We focus on intervals, scenario analysis, and policy relevance so the output supports real operating decisions.</p>
+          </div>
+          <div class="card">
+            <h3>Observational data is first-class</h3>
+            <p>Most important business questions are not randomized. We treat observational causal inference as a core product capability, not an afterthought.</p>
+          </div>
+          <div class="card">
+            <h3>One workflow from model to memo</h3>
+            <p>Outputs become clear decision artifacts: recommended actions, uncertainty summaries, and executive-ready explanations that teams can actually use.</p>
+          </div>
+        </div>
+        <div class="band">
+          <strong>Initial focus:</strong> U.S. enterprises with large multi-series business data in pricing, demand planning, revenue forecasting, marketing measurement, and operational policy analysis.
+        </div>
+      </div>
+    </section>
+
+    <section id="use-cases" class="section">
+      <div class="wrap">
+        <h2>Early use cases</h2>
+        <p class="lead">
+          We are initially focused on high-value decisions where prediction alone is not enough and the cost of wrong policy moves is material.
+        </p>
+        <div class="grid-3">
+          <div class="card">
+            <h3>Pricing and promotions</h3>
+            <p>Estimate elasticity, simulate pricing moves, evaluate promotional lift, and distinguish signal from confounding in messy historical data.</p>
+          </div>
+          <div class="card">
+            <h3>Demand and revenue planning</h3>
+            <p>Produce scenario-aware forecasts across many related series, detect shifts quickly, and improve planning under uncertainty.</p>
+          </div>
+          <div class="card">
+            <h3>Marketing and growth measurement</h3>
+            <p>Connect campaign forecasting with causal incrementality analysis so teams can allocate spend with stronger evidence.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="wrap">
+        <h2>Build with us</h2>
+        <p class="lead">
+          We are developing the first version of the platform and are interested in early design partners, pilot customers, and feedback from teams working on forecasting,
+          pricing, demand planning, or causal measurement.
+        </p>
+        <div class="cta-row">
+          <a class="btn btn-primary" href="mailto:tamercetin@berkeley.edu?subject=CausalAI%20Design%20Partner">Become a design partner</a>
+          <a class="btn btn-secondary" href="https://github.com/tamercetin" target="_blank" rel="noreferrer">GitHub</a>
+        </div>
+        <p class="small-note">
+          Domain note: this preview is currently hosted within the existing GitHub Pages site. If <strong>causalai.io</strong> is still under your control,
+          the same landing page can later be moved to a dedicated GitHub Pages setup and pointed to that domain.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap">
+      <div>CausalAI • Forecasting, prediction, and causal decision intelligence</div>
+      <div class="small-note">Current preview path: <strong>/causalai/</strong> on the existing GitHub Pages site.</div>
+    </div>
+  </footer>
+</body>
+</html>
